@@ -4,6 +4,6 @@
     {
         public double? Weight { get; set; }
 
-        public override string ToString() => base.ToString() + ", Weight: {Weight:N1} kg";
+        public override string ToString() => base.ToString() + $", Waga: {Weight:N1} kg";
     }
 }

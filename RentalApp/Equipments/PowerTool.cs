@@ -4,6 +4,6 @@
     {
         public int? Power { get; set; }
 
-        public override string ToString() => base.ToString() + $", Power: {Power} W";
+        public override string ToString() => base.ToString() + $", Moc: {Power} W";
     }
 }

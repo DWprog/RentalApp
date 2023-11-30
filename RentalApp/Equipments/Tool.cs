@@ -4,6 +4,6 @@
     {
         public double? Price { get; set; }
 
-        public override string ToString() => base.ToString() + $", Price: {Price}";
+        public override string ToString() => base.ToString() + $", Cena: {Price:N2}";
     }
 }
