@@ -2,8 +2,5 @@
 {
     public class Tool : EquipmentBase
     {
-        public double? Price { get; set; }
-
-        public override string ToString() => base.ToString() + $", Cena: {Price:N2}";
     }
 }

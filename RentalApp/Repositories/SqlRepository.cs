@@ -1,12 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RentalApp.Equipments;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace RentalApp.Repositories
 {
     public class SqlRepository<T> : IRepository<T>
-        where T : class, IEquipment
+        where T : class, IEquipment, new()
     {
         private readonly DbContext _dbContext;
         private readonly DbSet<T> _dbSet;
@@ -34,7 +35,19 @@ namespace RentalApp.Repositories
 
         public void Remove(T item)
         {
-            _dbSet.Remove(item);
+            if (item != null)
+            {
+                _dbSet.Remove(item);
+            }
+            else
+            {
+                Console.WriteLine("Such an item does not exist");
+            }
+        }
+
+        public void Save()
+        {
+            _dbContext.SaveChanges();
         }
     }
 }

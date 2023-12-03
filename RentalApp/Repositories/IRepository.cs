@@ -12,5 +12,6 @@ namespace RentalApp.Repositories
         void Remove(T item);
         T GetById(int id);
         IEnumerable<T> GetAll();
+        void Save();
     }
 }

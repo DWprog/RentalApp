@@ -1,4 +1,5 @@
 ﻿using RentalApp.Equipments;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -11,7 +12,7 @@ namespace RentalApp.Repositories
 
         public void Add(T item)
         {
-            item.Id = _items.Count + 1;
+            item.Id = _items.Count == 0 ? 1 : _items.Max(item => item.Id) + 1;
             _items.Add(item);
         }
 
@@ -22,12 +23,37 @@ namespace RentalApp.Repositories
 
         public T GetById(int id)
         {
-            return _items.Single(item => item.Id == id);
+            if (_items.Exists(x => x.Id == id))
+            {
+                return _items.Single(item => item.Id == id);
+            }
+            else
+            {
+                Console.WriteLine("The item does not exist");
+                return null;
+            }
+            //return t;
+            //T t;
+            //if (_items.Exists(x => x.Id == id))
+            //{
+            //    return _items.Single(item => item.Id == id);
+            //}
+            //else
+            //{
+            //    t = null;
+            //    throw new Exception("This item does not exist");
+            //}
+            //return t;
         }
 
         public IEnumerable<T> GetAll()
         {
             return _items.ToList();
+        }
+
+        public void Save()
+        {
+            //save is not required with list
         }
     }
 }
