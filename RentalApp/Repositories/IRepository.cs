@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using RentalApp.Equipments;
 
 namespace RentalApp.Repositories
 {
-    public interface IRepository<T>
+    public interface IRepository<T> : IReadRepository<T>, IWriteRepository<T>
+        where T : class, IEquipment
     {
-        void Add(T item);
-        void Remove(T item);
-        T GetById(int id);
-        IEnumerable<T> GetAll();
-        void Save();
     }
 }
