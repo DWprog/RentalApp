@@ -32,18 +32,6 @@ namespace RentalApp.Repositories
                 Console.WriteLine("The item does not exist");
                 return null;
             }
-            //return t;
-            //T t;
-            //if (_items.Exists(x => x.Id == id))
-            //{
-            //    return _items.Single(item => item.Id == id);
-            //}
-            //else
-            //{
-            //    t = null;
-            //    throw new Exception("This item does not exist");
-            //}
-            //return t;
         }
 
         public IEnumerable<T> GetAll()
